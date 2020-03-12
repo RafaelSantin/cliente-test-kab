@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from './components/App.vue'
-import Post from './components/Post.vue'
-import Hello from './components/Hello.vue'
+import Form from './components/Form.vue'
 import TableComponent from './components/TableComponent.vue'
 Vue.use(Router)
 
@@ -15,8 +14,8 @@ const router = new Router({
    },
    {
      path: '/post/:id',
-     name:'post',
-     component: Post,
+     name:'form',
+     component: Form,
      props: true,
    },
  ]

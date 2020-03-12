@@ -18,8 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->post('/clientes', 'ClienteController@store');
-Route::middleware('auth:api')->get('/clientes/{cliente}', 'ClienteController@show');
-Route::middleware('auth:api')->put('/clientes/{cliente}', 'ClienteController@update');
-Route::middleware('auth:api')->patch('/clientes/{cliente}', 'ClienteController@update');
-Route::middleware('auth:api')->delete('/clientes/{cliente}', 'ClienteController@destroy');
+Route::post('/clientes', 'ClienteController@store');
+Route::get('/clientes', 'ClienteController@list');
+Route::get('/clientes/{cliente}', 'ClienteController@show');
+Route::put('/clientes/{cliente}', 'ClienteController@update');
+Route::patch('/clientes/{cliente}', 'ClienteController@update');
+Route::delete('/clientes/{cliente}', 'ClienteController@destroy');

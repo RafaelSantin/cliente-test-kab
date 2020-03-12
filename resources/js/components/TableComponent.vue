@@ -6,16 +6,16 @@
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Nome</th>
+                            <th scope="col-6">Nome</th>
                             <th scope="col">Ação</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="post in posts" v-bind:key="post.cliente_id">
-                            <td>{{ post.cliente_id }}</td>
-                            <td>{{ post.cliente_nome }}</td>
-                            <td>
-                                <button type="button" class="btn btn-success">
+                        <tr v-for="post in posts" v-bind:key="post.id">
+                            <td>{{ post.id }}</td>
+                            <td style="width:400px;">{{ post.nome }}</td>
+                            <td > 
+                                <button type="button" class="btn btn-success" @click="goToEdit(post.id)">
                                     Editar
                                 </button>
                                 <button type="button" class="btn btn-danger">
@@ -43,7 +43,7 @@ export default {
     data() {
         return {
             posts: null,
-            endpoint: "https://api.myjson.com/bins/6zu12"
+            endpoint: "/api/clientes"
         };
     },
 
@@ -62,6 +62,9 @@ export default {
                     console.log("-----error-------");
                     console.log(error);
                 });
+        },
+        goToEdit(id) {
+            this.$router.push({ name: 'form', params: { id: id } });
         },
         async create() {
             // To do

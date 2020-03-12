@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ClienteController extends Controller
 {
@@ -14,7 +16,18 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Log::info($request);
+    }
+
+    /**
+     * Display the all resources.
+     *
+     * @param  mixed  $cliente
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        return Cliente::all();
     }
 
     /**
@@ -25,7 +38,7 @@ class ClienteController extends Controller
      */
     public function show($cliente)
     {
-        //
+        return Cliente::find($cliente);
     }
 
     /**
