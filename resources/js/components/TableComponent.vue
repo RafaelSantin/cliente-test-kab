@@ -2,6 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <button type="button" class="btn btn-primary mb-4" @click="goToNew()">
+                    Novo Cliente
+                </button>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -35,9 +38,6 @@ function Crud({ id, color, name }) {
     this.color = color;
     this.name = name;
 }
-
-import TableComponent from "./TableComponent.vue";
-
 import axios from "axios";
 export default {
     data() {
@@ -66,6 +66,9 @@ export default {
         goToEdit(id) {
             this.$router.push({ name: 'form', params: { id: id } });
         },
+        goToNew() {
+            this.$router.push({ name: 'new' });
+        },
         async create() {
             // To do
         },
@@ -78,9 +81,6 @@ export default {
         async del(id) {
             // To do
         }
-    },
-    components: {
-        TableComponent
     }
 };
 </script>
